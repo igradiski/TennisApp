@@ -9,13 +9,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hr.igradiski.app</groupId>
-	<artifactId>tennis</artifactId>
+	<artifactId>tennis-REST</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>TennisREST</name>
+	<name>Tennis-REST</name>
 	<description>TennisREST</description>
 	<properties>
 		<java.version>11</java.version>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		<resources.delimiter>^</resources.delimiter>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -33,11 +34,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.25</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -78,12 +74,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.4.1208</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.27</version>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
