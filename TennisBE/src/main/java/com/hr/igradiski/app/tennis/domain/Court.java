@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name ="FIELD")
+@Table(name ="COURT")
 @NoArgsConstructor
 @Getter
 @Setter
