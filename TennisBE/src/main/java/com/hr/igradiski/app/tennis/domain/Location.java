@@ -18,6 +18,12 @@ import java.util.List;
 @ToString(onlyExplicitlyIncluded = true)
 public class Location extends AbstractEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_loc")
+    @SequenceGenerator(name="seq_loc",allocationSize = 1)
+    @Column(name="id")
+    private Long id;
+
     @Column(nullable = false)
     private String name;
 
@@ -30,7 +36,8 @@ public class Location extends AbstractEntity implements Serializable {
     @JsonIgnore
     private byte[] picture;
 
-    private String picture_name;
+    @Column(name = "picture_name")
+    private String pictureName;
 
     @OneToMany(mappedBy = "location")
     private List<Court> courts;

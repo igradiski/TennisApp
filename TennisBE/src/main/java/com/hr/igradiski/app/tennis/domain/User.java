@@ -19,6 +19,12 @@ import java.util.Set;
 @ToString(onlyExplicitlyIncluded = true)
 public class User extends AbstractEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_usr")
+    @SequenceGenerator(name="seq_usr",allocationSize = 1)
+    @Column(name="id")
+    private Long id;
+
     private Boolean active;
 
     private String email;

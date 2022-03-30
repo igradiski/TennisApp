@@ -13,6 +13,12 @@ import java.time.Instant;
 @NoArgsConstructor
 public class RefreshToken extends AbstractEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_tok")
+    @SequenceGenerator(name="seq_tok",allocationSize = 1)
+    @Column(name="id")
+    private Long id;
+
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;

@@ -10,21 +10,13 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @NoArgsConstructor
-public class LocationDto {
-
-    private Long id;
+public class FilterDto {
 
     @NotEmpty
     @Size(min = 3)
     private String name;
 
-    @NotEmpty
-    private String adress;
+    private String dateFrom;
 
-    @NotEmpty
-    private String city;
-
-    private String base64;
-
-    private String pictureName;
+    private String dateUntil;
 }

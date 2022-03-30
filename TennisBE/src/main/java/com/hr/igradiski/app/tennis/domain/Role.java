@@ -14,6 +14,12 @@ import java.util.List;
 @Setter
 public class Role extends AbstractEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_role")
+    @SequenceGenerator(name="seq_role",allocationSize = 1)
+    @Column(name="id")
+    private Long id;
+
     @OneToMany(mappedBy="role")
     private List<UserRole> userRoles;
 

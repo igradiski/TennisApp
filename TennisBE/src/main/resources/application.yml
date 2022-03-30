@@ -10,7 +10,7 @@ server:
       suffix: .log
       max-days: 5
       rename-on-rotate: true
-  # Enable gracefule shutdown
+  # Enable graceful shutdown
   shutdown: graceful
 
 # Logger configuration

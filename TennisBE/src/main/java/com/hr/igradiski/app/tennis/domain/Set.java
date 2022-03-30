@@ -16,6 +16,12 @@ import java.io.Serializable;
 @ToString(onlyExplicitlyIncluded = true)
 public class Set extends AbstractEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_set")
+    @SequenceGenerator(name="seq_set",allocationSize = 1)
+    @Column(name="id")
+    private Long id;
+
     @Column(nullable = false)
     private Integer player1;
 

@@ -17,6 +17,12 @@ import java.util.List;
 @ToString(onlyExplicitlyIncluded = true)
 public class Match extends AbstractEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_match")
+    @SequenceGenerator(name="seq_match",allocationSize = 1)
+    @Column(name="id")
+    private Long id;
+
     @Column(nullable = false)
     private String name;
 

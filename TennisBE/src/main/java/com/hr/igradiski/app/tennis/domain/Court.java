@@ -17,6 +17,12 @@ import java.util.List;
 @ToString(onlyExplicitlyIncluded = true)
 public class Court extends AbstractEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_crt")
+    @SequenceGenerator(name="seq_crt",allocationSize = 1)
+    @Column(name="id")
+    private Long id;
+
     @Column(nullable = false)
     private String name;
 

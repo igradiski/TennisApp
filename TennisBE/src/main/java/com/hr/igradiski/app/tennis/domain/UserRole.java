@@ -13,6 +13,12 @@ import java.util.Date;
 @Setter
 public class UserRole extends AbstractEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_usr_role")
+    @SequenceGenerator(name="seq_usr_role", allocationSize = 1)
+    @Column(name="id")
+    private Long id;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetime;
 

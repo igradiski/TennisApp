@@ -16,7 +16,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @Getter
 @Setter
-public abstract class AbstractEntity extends AbstractPersistable {
+public abstract class AbstractEntity{
 
     @CreatedDate
     @Column(name = "created_date")
