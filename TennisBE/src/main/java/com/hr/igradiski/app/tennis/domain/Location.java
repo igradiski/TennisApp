@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @ToString(onlyExplicitlyIncluded = true)
 public class Location extends AbstractEntity implements Serializable {
 

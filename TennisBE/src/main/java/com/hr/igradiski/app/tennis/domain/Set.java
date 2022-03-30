@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @ToString(onlyExplicitlyIncluded = true)
 public class Set extends AbstractEntity implements Serializable {
 

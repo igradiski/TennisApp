@@ -15,7 +15,7 @@ import java.util.Set;
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 @ToString(onlyExplicitlyIncluded = true)
 public class User extends AbstractEntity implements Serializable {
 
