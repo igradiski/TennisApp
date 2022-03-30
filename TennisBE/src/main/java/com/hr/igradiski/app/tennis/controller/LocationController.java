@@ -21,7 +21,6 @@ import java.util.List;
 @RequestMapping("/locations")
 @Slf4j
 @RequiredArgsConstructor
-@CrossOrigin()
 public class LocationController {
 
     private final LocationService locationService;

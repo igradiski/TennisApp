@@ -42,4 +42,6 @@ public class Location extends AbstractEntity implements Serializable {
     @OneToMany(mappedBy = "location")
     private List<Court> courts;
 
+    private Boolean approved;
+
 }

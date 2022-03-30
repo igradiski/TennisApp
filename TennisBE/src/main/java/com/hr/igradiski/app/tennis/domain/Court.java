@@ -36,9 +36,12 @@ public class Court extends AbstractEntity implements Serializable {
     @Column(nullable = false,name = "has_lights")
     private Boolean hasLights;
 
+    private Boolean approved;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Location location;
 
     @OneToMany(mappedBy = "court")
     private List<Match> matches;
+
 }

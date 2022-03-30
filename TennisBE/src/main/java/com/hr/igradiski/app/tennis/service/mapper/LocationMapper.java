@@ -9,7 +9,7 @@ import org.mapstruct.MappingTarget;
 import java.util.Base64;
 
 @Mapper(componentModel="spring")
-public interface LocationMapper extends EntityMapper<Location, LocationDto>{
+public interface LocationMapper{
 
     default byte[] toByte(String base64){
         return Base64.getDecoder().decode(base64);
