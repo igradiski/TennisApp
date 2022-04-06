@@ -1,22 +1,18 @@
 package com.hr.igradiski.app.tennis.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.EntityListeners;
 import java.time.Instant;
 
-@MappedSuperclass
-@SuperBuilder
-@NoArgsConstructor
-@Getter
-@Setter
+@EntityListeners(AuditingEntityListener.class)
 public abstract class AbstractEntity{
+
+    public AbstractEntity() {
+    }
 
     @CreatedDate
     @Column(name = "created_date")
@@ -26,4 +22,11 @@ public abstract class AbstractEntity{
     @Column(name = "updated_date")
     private Instant updated;
 
+    public Instant getCreated() {
+        return created;
+    }
+
+    public void setCreated(Instant created) {
+        this.created = created;
+    }
 }

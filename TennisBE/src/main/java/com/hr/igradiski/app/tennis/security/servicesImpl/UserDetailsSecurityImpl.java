@@ -4,8 +4,6 @@ package com.hr.igradiski.app.tennis.security.servicesImpl;
 import com.hr.igradiski.app.tennis.domain.ERole;
 import com.hr.igradiski.app.tennis.domain.User;
 import com.hr.igradiski.app.tennis.domain.repository.jpa.UserRepository;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,12 +16,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
-@AllArgsConstructor
-@SuperBuilder
-@Getter
-@Setter
+
 public class UserDetailsSecurityImpl implements UserDetails {
+
+	public UserDetailsSecurityImpl() {
+	}
 
 	private UserRepository userRepository;
 
@@ -47,15 +44,56 @@ public class UserDetailsSecurityImpl implements UserDetails {
 		Set<ERole> roles = user.getUserRoles().stream()
 				.map(role -> role.getRole().getName())
 				.collect(Collectors.toSet());
+		UserDetailsSecurityImpl userDetailsSecurity = new UserDetailsSecurityImpl();
+		userDetailsSecurity.setId(user.getId());
+		userDetailsSecurity.setEmail(user.getEmail());
+		userDetailsSecurity.setUsername(user.getUsername());
+		userDetailsSecurity.setPassword(user.getPassword());
+		userDetailsSecurity.setAuthorities(authorities);
+		return userDetailsSecurity;
+	}
 
-		return UserDetailsSecurityImpl
-				.builder()
-				.id(user.getId())
-				.email(user.getEmail())
-				.username(user.getUsername())
-				.password(user.getPassword())
-				.authorities(authorities)
-				.build();
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
 	}
 
 	@Override

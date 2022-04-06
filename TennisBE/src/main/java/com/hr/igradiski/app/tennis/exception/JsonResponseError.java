@@ -8,9 +8,6 @@ import org.springframework.http.HttpStatus;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import lombok.Data;
-
-@Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class JsonResponseError {
 
@@ -48,5 +45,45 @@ public class JsonResponseError {
         message = pMessage;
         code = pStatus.value();
         this.timestamp = Timestamp.from(Instant.now());
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public HttpStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(HttpStatus status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public List<String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<String> errors) {
+        this.errors = errors;
     }
 }

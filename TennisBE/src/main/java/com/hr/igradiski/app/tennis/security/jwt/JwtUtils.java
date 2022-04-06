@@ -2,21 +2,23 @@ package com.hr.igradiski.app.tennis.security.jwt;
 
 import com.hr.igradiski.app.tennis.security.servicesImpl.UserDetailsSecurityImpl;
 import io.jsonwebtoken.*;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 @Component
-@Slf4j
 public class JwtUtils {
-	//todo yaml
-	@Value("${Vine.app.jwtSecret}")
-	private String jwtSecret = "hoho";
-	//todo yaml
-	@Value("${Vine.app.jwtExpirationMs}")
-	private int jwtExpirationMs = 330000;
+
+	@Value("${tennisApp.jwtSecret}")
+	private String jwtSecret;
+
+	@Value("${tennisApp.jwtExpiration}")
+	private int jwtExpirationMs;
+
+	private Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
 	public String generateJwtToken(UserDetailsSecurityImpl userPrincipal) {
 	    return generateTokenFromUsername(userPrincipal.getUsername());
@@ -37,15 +39,15 @@ public class JwtUtils {
 			Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
 			return true;
 		} catch (SignatureException e) {
-			log.error("Invalid JWT signature: {}", e.getMessage());
+			logger.error("Invalid JWT signature: {}", e.getMessage());
 		} catch (MalformedJwtException e) {
-			log.error("Invalid JWT token: {}", e.getMessage());
+			logger.error("Invalid JWT token: {}", e.getMessage());
 		} catch (ExpiredJwtException e) {
-			log.error("JWT token is expired: {}", e.getMessage());
+			logger.error("JWT token is expired: {}", e.getMessage());
 		} catch (UnsupportedJwtException e) {
-			log.error("JWT token is unsupported: {}", e.getMessage());
+			logger.error("JWT token is unsupported: {}", e.getMessage());
 		} catch (IllegalArgumentException e) {
-			log.error("JWT claims string is empty: {}", e.getMessage());
+			logger.error("JWT claims string is empty: {}", e.getMessage());
 		}
 
 		return false;

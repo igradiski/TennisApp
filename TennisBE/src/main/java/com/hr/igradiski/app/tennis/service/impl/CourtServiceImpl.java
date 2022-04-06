@@ -10,8 +10,8 @@ import com.hr.igradiski.app.tennis.exception.ObjectAlreadyExists;
 import com.hr.igradiski.app.tennis.exception.ObjectNotFound;
 import com.hr.igradiski.app.tennis.service.CourtService;
 import com.hr.igradiski.app.tennis.service.mapper.CourtMapper;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -22,21 +22,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@Slf4j
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class CourtServiceImpl implements CourtService {
 
     private final CourtRepository courtRepository;
     private final LocationRepository locationRepository;
     private final CourtMapper courtMapper;
+    private Logger logger = LoggerFactory.getLogger(CourtServiceImpl.class);
+
+    public CourtServiceImpl(CourtRepository courtRepository, LocationRepository locationRepository, CourtMapper courtMapper) {
+        this.courtRepository = courtRepository;
+        this.locationRepository = locationRepository;
+        this.courtMapper = courtMapper;
+    }
 
     @Override
     @Transactional
     public CourtDto addNewCourt(CourtDto courtDto) {
 
         if(courtRepository.existsByName(courtDto.getName())){
-            log.error("Court with name; "+courtDto.getName()+" already exists");
+            logger.error("Court with name; "+courtDto.getName()+" already exists");
             throw new ObjectAlreadyExists("Court with name; "+courtDto.getName()+" already exists");
         }
         var location = locationRepository.findById(courtDto.getLocation())

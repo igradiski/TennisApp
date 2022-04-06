@@ -1,20 +1,14 @@
 package com.hr.igradiski.app.tennis.domain;
 
-import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name ="SET")
-@NoArgsConstructor
-@Getter
-@Setter
-@EntityListeners(AuditingEntityListener.class)
-@EqualsAndHashCode(callSuper = false)
-@ToString(onlyExplicitlyIncluded = true)
 public class Set extends AbstractEntity implements Serializable {
+
+    public Set() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_set")
@@ -31,4 +25,35 @@ public class Set extends AbstractEntity implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Match match;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getPlayer1() {
+        return player1;
+    }
+
+    public void setPlayer1(Integer player1) {
+        this.player1 = player1;
+    }
+
+    public Integer getPlayer2() {
+        return player2;
+    }
+
+    public void setPlayer2(Integer player2) {
+        this.player2 = player2;
+    }
+
+    public Match getMatch() {
+        return match;
+    }
+
+    public void setMatch(Match match) {
+        this.match = match;
+    }
 }

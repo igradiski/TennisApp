@@ -1,21 +1,15 @@
 package com.hr.igradiski.app.tennis.domain;
 
-import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name ="COURT")
-@NoArgsConstructor
-@Getter
-@Setter
-@EntityListeners(AuditingEntityListener.class)
-@EqualsAndHashCode(callSuper = false)
-@ToString(onlyExplicitlyIncluded = true)
 public class Court extends AbstractEntity implements Serializable {
+
+    public Court() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_crt")
@@ -43,5 +37,70 @@ public class Court extends AbstractEntity implements Serializable {
 
     @OneToMany(mappedBy = "court")
     private List<Match> matches;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ECourtType getType() {
+        return type;
+    }
+
+    public void setType(ECourtType type) {
+        this.type = type;
+    }
+
+    public Boolean getCovered() {
+        return isCovered;
+    }
+
+    public void setCovered(Boolean covered) {
+        isCovered = covered;
+    }
+
+    public Boolean getHasLights() {
+        return hasLights;
+    }
+
+    public void setHasLights(Boolean hasLights) {
+        this.hasLights = hasLights;
+    }
+
+    public Boolean getApproved() {
+        return approved;
+    }
+
+    public void setApproved(Boolean approved) {
+        this.approved = approved;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public List<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
+
 
 }

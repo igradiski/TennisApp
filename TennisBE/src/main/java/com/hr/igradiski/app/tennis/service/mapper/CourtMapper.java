@@ -5,8 +5,9 @@ import com.hr.igradiski.app.tennis.domain.dto.CourtDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel="spring")
+@Mapper(componentModel="spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CourtMapper {
 
     @Mapping(target = "location",ignore = true)
@@ -17,7 +18,6 @@ public interface CourtMapper {
 
     @Mapping(target="court.id",ignore = true)
     @Mapping(target="court.created",ignore = true)
-    @Mapping(target="court.updated",ignore = true)
     @Mapping(target ="court.location",ignore = true)
     Court updateFromDto(@MappingTarget Court court, CourtDto courtDto);
 }

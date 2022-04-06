@@ -6,8 +6,6 @@ import com.hr.igradiski.app.tennis.domain.repository.jpa.RefreshTokenRepository;
 import com.hr.igradiski.app.tennis.domain.repository.jpa.UserRepository;
 import com.hr.igradiski.app.tennis.exception.TokenRefreshException;
 import com.hr.igradiski.app.tennis.security.services.RefreshTokenService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,20 +15,20 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class RefreshTokenServiceImpl implements RefreshTokenService {
 
-	//todo stavit u yamlicu
-	@Value("${Vine.app.jwt.jwtRefreshExpirationMs}")
-	private Long refreshTokenDurationMs=150000L;
+	@Value("${tennisApp.refTokDuration}")
+	private Long refreshTokenDurationMs=200L;
 
-	@Autowired
-	private RefreshTokenRepository refreshTokenRepository;
+	private final RefreshTokenRepository refreshTokenRepository;
 
-	@Autowired
-	private UserRepository userRepository;
+	private final UserRepository userRepository;
 
-	
+	public RefreshTokenServiceImpl(RefreshTokenRepository refreshTokenRepository, UserRepository userRepository) {
+		this.refreshTokenRepository = refreshTokenRepository;
+		this.userRepository = userRepository;
+	}
+
 	public Optional<RefreshToken> findByToken(String token) {
 	    return refreshTokenRepository.findByToken(token);
 	  }

@@ -1,0 +1,28 @@
+.sideMenu-main {
+  background: linear-gradient(to right, #d4380d, transparent 90%);
+  width: 10vw;
+  height: 92vh;
+  z-index: 1;
+}
+.ant-layout-sider-trigger{
+  background-color: transparent;
+  position: relative;
+}
+.anticon svg {
+  display: inline-block;
+  color: black;
+}
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+  width: 100%;
+  background: linear-gradient(to right, #d4380d, transparent 1%);
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background: linear-gradient(to right, #d4380d, transparent 1%);
+}
+.ant-menu-dark .ant-menu-item, .ant-menu-dark .ant-menu-item-group-title, .ant-menu-dark .ant-menu-item > a, .ant-menu-dark .ant-menu-item > span > a {
+  color: black;
+  font-size: medium;
+  font-weight: 400;
+}
+

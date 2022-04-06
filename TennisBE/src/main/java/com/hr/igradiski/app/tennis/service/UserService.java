@@ -9,5 +9,5 @@ public interface UserService {
 
     ResponseEntity<?> refreshToken(TokenRefreshRequest request);
 
-    ResponseEntity<?> registerUser(UserDto signUpRequest);
+    UserDto registerUser(UserDto signUpRequest);
 }

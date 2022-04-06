@@ -24,6 +24,5 @@ public interface LocationMapper{
 
     @Mapping(target="location.id",ignore = true)
     @Mapping(target="location.created",ignore = true)
-    @Mapping(target="location.updated",ignore = true)
     Location updateFromDto(@MappingTarget Location location, LocationDto locationDto);
 }

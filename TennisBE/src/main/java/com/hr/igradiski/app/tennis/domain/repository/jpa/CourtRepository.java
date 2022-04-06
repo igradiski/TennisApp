@@ -1,7 +1,6 @@
 package com.hr.igradiski.app.tennis.domain.repository.jpa;
 
 import com.hr.igradiski.app.tennis.domain.Court;
-import com.hr.igradiski.app.tennis.domain.dto.CourtDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;

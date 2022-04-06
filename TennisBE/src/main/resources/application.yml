@@ -63,3 +63,8 @@ swagger:
   contactEmail: mail@mail.com
   license: License of API
   licenseUrl: \#
+
+tennisApp:
+  refTokDuration: 600000
+  jwtSecret: Gemistarka
+  jwtExpiration: 600000

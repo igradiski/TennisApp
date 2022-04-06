@@ -9,8 +9,8 @@ import com.hr.igradiski.app.tennis.exception.ObjectAlreadyExists;
 import com.hr.igradiski.app.tennis.exception.ObjectNotFound;
 import com.hr.igradiski.app.tennis.service.LocationService;
 import com.hr.igradiski.app.tennis.service.mapper.LocationMapper;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -21,20 +21,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@Slf4j
-@RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class LocationServiceImpl implements LocationService {
 
     private final LocationRepository locationRepository;
     private final LocationMapper locationMapper;
+    private Logger logger = LoggerFactory.getLogger(LocationServiceImpl.class);
+
+    public LocationServiceImpl(LocationRepository locationRepository, LocationMapper locationMapper) {
+        this.locationRepository = locationRepository;
+        this.locationMapper = locationMapper;
+    }
 
     @Override
     @Transactional
     public LocationDto addNewLocation(LocationDto locationDto) {
 
         if(locationRepository.existsByName(locationDto.getName())){
-            log.error("Location with name; "+locationDto.getName()+" already exists");
+            logger.error("Location with name; "+locationDto.getName()+" already exists");
             throw new ObjectAlreadyExists("Location with name; "+locationDto.getName()+" already exists");
         }
         Location location = locationMapper.toEntity(locationDto);

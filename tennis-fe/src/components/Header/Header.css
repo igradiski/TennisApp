@@ -1,0 +1,45 @@
+
+.container{
+  background: linear-gradient(to right , #d4380d, transparent 90%);
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ant-btn{
+  background-color: #ffd8bf;
+  border: 1px solid;
+  font-weight: 600;
+}
+
+.ant-btn-group > .ant-btn:first-child:not(:last-child){
+  border-radius: 10px;
+}
+.ant-btn:hover, .ant-btn:focus {
+  color: #d4380d;
+  border-color: #d4380d;
+  background: #fff;
+}
+
+.ant-btn-group > .ant-btn:last-child:not(:first-child), .ant-btn-group > span:last-child:not(:first-child) > .ant-btn{
+  margin-left: 1px;
+  border-style: none;
+}
+.ant-dropdown-menu-dark, .ant-dropdown-menu-dark .ant-dropdown-menu {
+  background: linear-gradient(320deg, #d4380d, #ffd8bf);
+}
+
+.ant-dropdown-menu-title-content {
+  flex: auto;
+  color: black;
+}
+
+.ant-btn:hover, .ant-btn:focus {
+  color: #d4380d;
+  border-color: #d4380d;
+  background: #ffd8bf;
+}
+

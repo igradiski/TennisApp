@@ -1,20 +1,15 @@
 package com.hr.igradiski.app.tennis.domain;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 
 @Entity
 @Table(name = "REFRESH_TOKEN")
-@Getter
-@Setter
-@NoArgsConstructor
 public class RefreshToken extends AbstractEntity implements Serializable {
+
+    public RefreshToken() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_tok")
@@ -31,4 +26,36 @@ public class RefreshToken extends AbstractEntity implements Serializable {
 
     @Column(name="expire")
     private Instant expire;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Instant getExpire() {
+        return expire;
+    }
+
+    public void setExpire(Instant expire) {
+        this.expire = expire;
+    }
 }

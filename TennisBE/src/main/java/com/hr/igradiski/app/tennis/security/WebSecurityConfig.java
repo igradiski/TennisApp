@@ -3,9 +3,6 @@ package com.hr.igradiski.app.tennis.security;
 import com.hr.igradiski.app.tennis.security.jwt.AuthEntryPointJwt;
 import com.hr.igradiski.app.tennis.security.jwt.AuthTokenFilter;
 import com.hr.igradiski.app.tennis.security.servicesImpl.UserDetailsSecurityService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -31,15 +28,18 @@ import java.util.List;
  */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@RequiredArgsConstructor
-@Slf4j
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 
 	private final UserDetailsSecurityService userServiceSecurity;
 
 	private final AuthEntryPointJwt unauthorizedHandler;
-	
+
+	public WebSecurityConfig(UserDetailsSecurityService userServiceSecurity, AuthEntryPointJwt unauthorizedHandler) {
+		this.userServiceSecurity = userServiceSecurity;
+		this.unauthorizedHandler = unauthorizedHandler;
+	}
+
 	@Bean
 	public AuthTokenFilter authenticationJwtTokenFilter() {
 		return new AuthTokenFilter();

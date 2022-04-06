@@ -1,0 +1,9 @@
+.footer-background {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(to left , #d4380d, transparent 92%);
+  position: absolute;
+  width: 100vw;
+  top: 97.6vh;
+  justify-content: center;
+}
