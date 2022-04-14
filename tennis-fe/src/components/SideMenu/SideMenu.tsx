@@ -21,12 +21,15 @@ const SideMenu: FunctionComponent = () => {
     >
       <Menu theme="dark" mode="inline">
         <Menu.Item key="1" icon={<HomeOutlined />}>
-          <Link to={"/login"}>Login</Link>
+          <Link to={"/"}>Login</Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          <Link to={"/"}>Register</Link>
+          <Link to={"/register"}>Register</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<HomeOutlined />}>
+          <Link to={"/match"}>Match</Link>
+        </Menu.Item>
+        <Menu.Item key="4" icon={<HomeOutlined />}>
           Home
         </Menu.Item>
       </Menu>

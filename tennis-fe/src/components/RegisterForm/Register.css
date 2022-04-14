@@ -18,13 +18,23 @@
     justify-content: space-between;
     align-items: center;
 }
-
 .ant-form-item-control-input-content{
     width: 20vw;
 }
 .prijava-button{
     border-radius: 10px;
     color: black;
+}
+
+.ant-form-item-label > label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    font-weight: bold;
+    height: 32px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
 }
 @media only screen and (max-width: 600px) {
  

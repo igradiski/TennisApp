@@ -1,0 +1,117 @@
+.main-container{
+    width: 70vw;
+    text-align: center;
+}
+
+.tableFilter{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 1%;
+}
+
+.filterItem{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+.label{
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector{
+    background-color: #ffd8bf;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.ant-table-container {
+    background-color: #ffd8bf;
+}
+.ant-table-content{
+    background-color: #ffd8bf;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.ant-table table {
+    text-align: center;
+}
+
+.ant-table-cell{
+    background-color: #ffd8bf;
+}
+
+.ant-table-thead > tr > th{
+    background-color: #ffd8bf;
+}
+
+
+.ant-table-tbody > tr > td {
+    border-top: 1px solid black;
+    border-bottom: none;
+}
+
+.ant-table-thead > tr > th{
+    text-align: center;
+    border-bottom: none;
+}
+
+.ant-pagination{
+    margin-top: 1%;
+}
+.ant-pagination-item {
+    font-weight: 500;
+    background: #ffd8bf;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.ant-pagination-item-active {
+    font-weight: 500;
+    background: #ffd8bf;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.ant-pagination-item-active a {
+    color: #d4380d;
+}
+.ant-pagination-item-active:hover {
+    border-color: #d4380d;
+}
+
+.ant-pagination-item-active:hover a {
+    color: #d4380d;
+}
+.ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {
+    font-weight: 500;
+    background: #ffd8bf;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link {
+    color: rgba(0, 0, 0, 0.25);
+    border-color: #d4380d;
+    cursor: not-allowed;
+}
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+    padding-right: 18px;
+    color: black;
+}
+.ant-cascader-menu {
+    background: #ffd8bf;
+    border-right: none;
+}
+
+.CRUD_buttons{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

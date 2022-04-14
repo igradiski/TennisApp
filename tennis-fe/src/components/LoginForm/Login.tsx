@@ -9,7 +9,7 @@ const Login: FunctionComponent = () => {
 
   return (
     <Form name="LoginForm">
-      <h1 className="form-title">Prijava</h1>
+      <h1 className="form-title">Login</h1>
       <Form.Item
         className="input-row"
         label="Username"
@@ -22,10 +22,16 @@ const Login: FunctionComponent = () => {
         ]}
       >
         <Input
+          style={{
+            background: "#ffd8bf",
+            border: "solid #d4380d",
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
           className="input-login-textbox"
           value={username}
           maxLength={50}
-          //onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
         />
       </Form.Item>
       <Form.Item
@@ -40,10 +46,16 @@ const Login: FunctionComponent = () => {
         ]}
       >
         <Input
+          style={{
+            background: "#ffd8bf",
+            border: "solid #d4380d",
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
           className="input-login-textbox"
-          value={username}
+          value={password}
           maxLength={50}
-          //onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </Form.Item>
 
