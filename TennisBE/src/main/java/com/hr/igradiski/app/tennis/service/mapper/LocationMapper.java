@@ -20,6 +20,7 @@ public interface LocationMapper{
 
     Location toEntity(LocationDto locationDto);
 
+    @Mapping(source ="updated",target = "date")
     LocationDto toDto(Location location);
 
     @Mapping(target="location.id",ignore = true)

@@ -25,7 +25,8 @@ const Register: FunctionComponent = () => {
         <Input
           style={{
             background: "#ffd8bf",
-            border: "solid #d4380d",
+            border: "solid 1px #d4380d",
+            borderRadius: "10px",
             textAlign: "center",
             fontWeight: "bold",
           }}
@@ -49,7 +50,8 @@ const Register: FunctionComponent = () => {
         <Input
           style={{
             background: "#ffd8bf",
-            border: "solid #d4380d",
+            border: "solid 1px #d4380d",
+            borderRadius: "10px",
             textAlign: "center",
             fontWeight: "bold",
           }}
@@ -73,7 +75,8 @@ const Register: FunctionComponent = () => {
         <Input
           style={{
             background: "#ffd8bf",
-            border: "solid #d4380d",
+            border: "solid 1px #d4380d",
+            borderRadius: "10px",
             textAlign: "center",
             fontWeight: "bold",
           }}
@@ -97,7 +100,8 @@ const Register: FunctionComponent = () => {
         <Input
           style={{
             background: "#ffd8bf",
-            border: "solid #d4380d",
+            border: "solid 1px #d4380d",
+            borderRadius: "10px",
             textAlign: "center",
             fontWeight: "bold",
           }}
@@ -121,7 +125,8 @@ const Register: FunctionComponent = () => {
         <Input
           style={{
             background: "#ffd8bf",
-            border: "solid #d4380d",
+            border: "solid 1px #d4380d",
+            borderRadius: "10px",
             textAlign: "center",
             fontWeight: "bold",
           }}

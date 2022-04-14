@@ -25,6 +25,8 @@ public class LocationDto {
 
     private String pictureName;
 
+    private String date;
+
     public Long getId() {
         return id;
     }
@@ -71,5 +73,13 @@ public class LocationDto {
 
     public void setPictureName(String pictureName) {
         this.pictureName = pictureName;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

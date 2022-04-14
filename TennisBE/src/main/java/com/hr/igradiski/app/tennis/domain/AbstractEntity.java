@@ -15,11 +15,11 @@ public abstract class AbstractEntity{
     }
 
     @CreatedDate
-    @Column(name = "created_date")
+    @Column(name = "created_date",nullable = false)
     private Instant created;
 
     @LastModifiedDate
-    @Column(name = "updated_date")
+    @Column(name = "updated_date",nullable = false)
     private Instant updated;
 
     public Instant getCreated() {

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../components/LoginForm/Login";
 import MasterLayout from "../components/MainLayout/MainLayout";
 import Match from "../components/MatchForm/Match";
+import Location from "../components/LocationForm/Location";
 import Register from "../components/RegisterForm/Register";
 import ProtectedRoute from "./protectedRoute";
 import PublicRoutes from "./publicRoute";
@@ -35,6 +36,16 @@ const MainRoutes = () => (
         element={
           <MasterLayout>
             <Match />
+          </MasterLayout>
+        }
+      />
+    </Route>
+    <Route element={<PublicRoutes />}>
+      <Route
+        path="/location"
+        element={
+          <MasterLayout>
+            <Location />
           </MasterLayout>
         }
       />

@@ -30,6 +30,9 @@ const SideMenu: FunctionComponent = () => {
           <Link to={"/match"}>Match</Link>
         </Menu.Item>
         <Menu.Item key="4" icon={<HomeOutlined />}>
+          <Link to={"/location"}>Location</Link>
+        </Menu.Item>
+        <Menu.Item key="5" icon={<HomeOutlined />}>
           Home
         </Menu.Item>
       </Menu>

@@ -1,14 +1,19 @@
 package com.hr.igradiski.app.tennis.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.List;
 
 @Entity
 @Table(name ="LOCATION")
-public class Location extends AbstractEntity implements Serializable {
+@EntityListeners(AuditingEntityListener.class)
+public class Location implements Serializable {
 
     public Location() {
     }
@@ -38,6 +43,14 @@ public class Location extends AbstractEntity implements Serializable {
     private List<Court> courts;
 
     private Boolean approved;
+
+    @CreatedDate
+    @Column(name = "created_date",nullable = false)
+    private Instant created;
+
+    @LastModifiedDate
+    @Column(name = "updated_date",nullable = false)
+    private Instant updated;
 
     public Long getId() {
         return id;
@@ -103,4 +116,19 @@ public class Location extends AbstractEntity implements Serializable {
         this.approved = approved;
     }
 
+    public Instant getCreated() {
+        return created;
+    }
+
+    public void setCreated(Instant created) {
+        this.created = created;
+    }
+
+    public Instant getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Instant updated) {
+        this.updated = updated;
+    }
 }
