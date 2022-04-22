@@ -1,5 +1,6 @@
 package com.hr.igradiski.app.tennis.service;
 
+import com.hr.igradiski.app.tennis.domain.dto.CascaderDto;
 import com.hr.igradiski.app.tennis.domain.dto.FilterDto;
 import com.hr.igradiski.app.tennis.domain.dto.LocationDto;
 import org.springframework.data.domain.Page;
@@ -15,7 +16,7 @@ public interface LocationService {
 
     LocationDto getLocationById(Long id);
 
-    List<LocationDto> getAllLocations();
+    List<CascaderDto> getAllLocations();
 
     LocationDto updateLocation(LocationDto locationDto);
 

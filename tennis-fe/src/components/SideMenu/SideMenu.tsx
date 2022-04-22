@@ -33,6 +33,9 @@ const SideMenu: FunctionComponent = () => {
           <Link to={"/location"}>Location</Link>
         </Menu.Item>
         <Menu.Item key="5" icon={<HomeOutlined />}>
+          <Link to={"/court"}>Court</Link>
+        </Menu.Item>
+        <Menu.Item key="6" icon={<HomeOutlined />}>
           Home
         </Menu.Item>
       </Menu>

@@ -8,6 +8,14 @@ import { addLocation, getLocationsPaged } from "../../api/locations";
 import successModal from "../Modals/SucessModal";
 import errorModal from "../Modals/ErrorModal";
 import IPaging from "../../data/IPaging";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchAllLocations,
+  insertNewLocation,
+} from "../../store/slices/locationsSlice";
+import { RootState } from "../../store/reducer";
+import { addLocationInDB } from "../../store/slices/locationsSlice";
+import TableUpdateDelete from "../UpdateDeletePop/TableUpdateDelete";
 
 const Location: FunctionComponent = () => {
   const [name, setName] = useState("");
@@ -17,11 +25,21 @@ const Location: FunctionComponent = () => {
   const pageSize = 5;
   const [pageNo, setPageNo] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
-  const [tableData, setTableData] = useState([]);
+  const tableData = useSelector(
+    (state: RootState) => state.locations.tableData
+  );
+  const insertedLocation = useSelector(
+    (state: RootState) => state.locations.location
+  );
+  const dispatch = useDispatch();
 
   const changePageNo = (page: number, pageSize: number | undefined) => {
     setPageNo(page - 1);
   };
+
+  const editClick = (text: any, record: any) => {};
+
+  const deleteClick = (record: any) => {};
 
   const getInitialData = async () => {
     const data: IPaging = {
@@ -34,12 +52,7 @@ const Location: FunctionComponent = () => {
       dateUntil: "",
       name: "",
     };
-    getLocationsPaged(data, filter).then((data) => {
-      console.log(data);
-      setTableData(data.content);
-      setTotalItems(data.totalElements);
-      setPageNo(data.pageable.pageNumber);
-    });
+    dispatch(fetchAllLocations({ data: data, filter: filter }));
   };
 
   useEffect(() => {
@@ -64,22 +77,27 @@ const Location: FunctionComponent = () => {
       title: "Date",
       dataIndex: "date",
     },
+    {
+      title: "",
+      dataIndex: "name",
+      render: (text: any, record: any) =>
+        TableUpdateDelete(
+          () => editClick(text, record),
+          () => deleteClick(record),
+          "Do you really want to delete this record?"
+        ),
+    },
   ];
 
-  const insertLocation = () => {
+  const insertLocation = async () => {
     let data: ILocations = {
       adress: adress,
       city: city,
       date: "",
       name: name,
     };
-    addLocation(data)
-      .then((response) => {
-        successModal("Content saved", "Content saved sucessfully!");
-      })
-      .catch((error: Error) => {
-        errorModal("Error", error.message);
-      });
+    dispatch(insertNewLocation(data));
+    //todo modal
   };
   return (
     <div className="main-container">

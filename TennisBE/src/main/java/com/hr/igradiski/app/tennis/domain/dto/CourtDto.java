@@ -12,7 +12,7 @@ public class CourtDto {
 
     private String type;
 
-    private Boolean isCovered;
+    private Boolean covered;
 
     private Boolean hasLights;
 
@@ -43,11 +43,11 @@ public class CourtDto {
     }
 
     public Boolean getCovered() {
-        return isCovered;
+        return covered;
     }
 
     public void setCovered(Boolean covered) {
-        isCovered = covered;
+        this.covered = covered;
     }
 
     public Boolean getHasLights() {

@@ -1,5 +1,6 @@
 package com.hr.igradiski.app.tennis.controller;
 
+import com.hr.igradiski.app.tennis.domain.dto.CascaderDto;
 import com.hr.igradiski.app.tennis.domain.dto.FilterDto;
 import com.hr.igradiski.app.tennis.domain.dto.LocationDto;
 import com.hr.igradiski.app.tennis.service.LocationService;
@@ -52,7 +53,7 @@ public class LocationController {
 
     @GetMapping("/all")
     @Operation(summary= "Operation to get all locations")
-    public List<LocationDto> getAllLocations(){
+    public List<CascaderDto> getAllLocations(){
 
         logger.info("Fetching all locations ");
         return locationService.getAllLocations();

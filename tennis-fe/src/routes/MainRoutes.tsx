@@ -6,6 +6,7 @@ import Location from "../components/LocationForm/Location";
 import Register from "../components/RegisterForm/Register";
 import ProtectedRoute from "./protectedRoute";
 import PublicRoutes from "./publicRoute";
+import Court from "../components/CourtForm/Court";
 
 const MainRoutes = () => (
   <Routes>
@@ -46,6 +47,16 @@ const MainRoutes = () => (
         element={
           <MasterLayout>
             <Location />
+          </MasterLayout>
+        }
+      />
+    </Route>
+    <Route element={<PublicRoutes />}>
+      <Route
+        path="/court"
+        element={
+          <MasterLayout>
+            <Court />
           </MasterLayout>
         }
       />

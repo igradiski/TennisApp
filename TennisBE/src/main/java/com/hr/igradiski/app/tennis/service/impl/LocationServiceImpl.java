@@ -1,6 +1,7 @@
 package com.hr.igradiski.app.tennis.service.impl;
 
 import com.hr.igradiski.app.tennis.domain.Location;
+import com.hr.igradiski.app.tennis.domain.dto.CascaderDto;
 import com.hr.igradiski.app.tennis.domain.dto.FilterDto;
 import com.hr.igradiski.app.tennis.domain.dto.LocationDto;
 import com.hr.igradiski.app.tennis.domain.repository.jpa.LocationRepository;
@@ -61,12 +62,12 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public List<LocationDto> getAllLocations() {
+    public List<CascaderDto> getAllLocations() {
 
         return locationRepository
                 .findAll()
                 .stream()
-                .map(locationMapper::toDto)
+                .map(locationMapper::toCascaderDto)
                 .collect(Collectors.toList());
     }
 

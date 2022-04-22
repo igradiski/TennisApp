@@ -8,6 +8,11 @@ export const addLocation = async (data: ILocations) => {
   return response.data;
 };
 
+export const fetchAllLocationsCascader = async () => {
+  const response = await axiosInstance.get("tennis-rest/api/locations/all");
+  return response.data;
+};
+
 export const getLocationsPaged = async (
   { pageNo, pageSize, sort }: IPaging,
   { dateFrom, dateUntil, name }: IDefaultFilter
